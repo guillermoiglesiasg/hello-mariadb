@@ -8,9 +8,16 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
+    ports:
+      - '3306:3306'
+    volumes:
+      -  db:/var/lib/mysql
 
   adminer:
     image: adminer
     restart: always
     ports:
-      - 8030:8080
+      - '8030:8080'
+
+volumes:
+  db:
